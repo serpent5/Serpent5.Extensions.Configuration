@@ -1,0 +1,25 @@
+pool:
+  vmImage: ubuntu-16.04
+
+name: 2.2.1$(Rev:.r)
+
+steps:
+  - task: DotNetCoreInstaller@0
+    inputs:
+      version: 2.2.105
+  - script: dotnet restore
+    displayName: dotnet restore
+  - script: dotnet build -c Release
+    displayName: dotnet build
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: test
+      projects: '**/*.Tests.csproj'
+      arguments: -c Release
+    displayName: dotnet test
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: pack
+      arguments: -c Release -o $(Build.ArtifactStagingDirectory)
+    displayName: dotnet pack
+  - task: PublishBuildArtifacts@1
