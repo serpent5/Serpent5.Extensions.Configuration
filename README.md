@@ -1,1 +1,1 @@
-[![Build Status](https://dev.azure.com/serpent5/serpent5/_apis/build/status/Serpent5.Extensions.Configuration?branchName=master)](https://dev.azure.com/serpent5/serpent5/_build/latest?definitionId=1&branchName=master)
+![Nuget](https://img.shields.io/nuget/v/Serpent5.Extensions.Configuration.svg)
