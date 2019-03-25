@@ -5,6 +5,5 @@
     <Authors>Kirk Larkin</Authors>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/serpent5/Serpent5.Extensions.Configuration</RepositoryUrl>
-    <VersionPrefix>2.2.1</VersionPrefix>
   </PropertyGroup>
 </Project>
