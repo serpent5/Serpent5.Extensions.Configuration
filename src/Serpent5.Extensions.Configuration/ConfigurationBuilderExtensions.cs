@@ -6,7 +6,7 @@ namespace Microsoft.Extensions.Configuration
 {
     public static class ConfigurationBuilderExtensions
     {
-        public static IConfigurationBuilder AddDefaultProviders(this IConfigurationBuilder configurationBuilder, string[] args = null)
+        public static IConfigurationBuilder AddWebHostDefaults(this IConfigurationBuilder configurationBuilder, string[] args = null)
         {
             if (configurationBuilder == null)
                 throw new ArgumentNullException(nameof(configurationBuilder));
