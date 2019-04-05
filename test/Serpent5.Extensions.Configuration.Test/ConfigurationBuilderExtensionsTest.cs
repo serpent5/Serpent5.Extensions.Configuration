@@ -2,10 +2,10 @@ using System;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 
-namespace Serpent5.Extensions.Configuration.Tests
+namespace Serpent5.Extensions.Configuration.Test
 {
     [TestFixture]
-    public class ConfigurationBuilderExtensionsTests
+    public class ConfigurationBuilderExtensionsTest
     {
         private const string environmentSettingName = "environmentSetting";
 

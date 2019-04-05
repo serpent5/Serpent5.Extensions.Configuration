@@ -14,7 +14,7 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: test
-      projects: '**/*.Tests.csproj'
+      projects: '**/*.Test.csproj'
       arguments: -c Release --no-build
     displayName: dotnet test
   - script: dotnet pack -c Release -o $(Build.ArtifactStagingDirectory) --no-build /p:PackageVersion=$(serpent5_Version)

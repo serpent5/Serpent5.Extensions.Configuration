@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D2F45959-EA09-455F-8799-D10CBDAB3DA6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serpent5.Extensions.Configuration.Tests", "tests\Serpent5.Extensions.Configuration.Tests\Serpent5.Extensions.Configuration.Tests.csproj", "{FD76AB9B-8EDD-491D-9160-F56EE9E07E69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serpent5.Extensions.Configuration.Test", "test\Serpent5.Extensions.Configuration.Test\Serpent5.Extensions.Configuration.Test.csproj", "{FD76AB9B-8EDD-491D-9160-F56EE9E07E69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

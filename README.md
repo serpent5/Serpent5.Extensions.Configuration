@@ -1,6 +1,6 @@
 # Serpent5.Extensions.Configuration
 
-![Nuget](https://img.shields.io/nuget/v/Serpent5.Extensions.Configuration.svg)
+[![Nuget](https://img.shields.io/nuget/v/Serpent5.Extensions.Configuration.svg)](https://www.nuget.org/packages/Serpent5.Extensions.Configuration)
 
 **Serpent5.Extensions.Configuration** provides a single `AddWebHostDefaults` extension method for `IConfigurationBuilder`, which configures the following configuration pipeline:
 
