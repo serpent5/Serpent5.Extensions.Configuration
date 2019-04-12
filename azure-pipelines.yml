@@ -2,7 +2,7 @@ variables:
   serpent5_Version: 2.2.2
 
 pool:
-  vmImage: ubuntu-16.04
+  vmImage: windows-2019
 
 name: $(serpent5_Version)$(Rev:.r)
 
@@ -15,7 +15,7 @@ steps:
     inputs:
       command: test
       projects: '**/*.Test.csproj'
-      arguments: -c Release --no-build
+      arguments: -c Release --no-build --collect "Code Coverage"
     displayName: dotnet test
   - script: dotnet pack -c Release -o $(Build.ArtifactStagingDirectory) --no-build /p:PackageVersion=$(serpent5_Version)
     displayName: dotnet pack
