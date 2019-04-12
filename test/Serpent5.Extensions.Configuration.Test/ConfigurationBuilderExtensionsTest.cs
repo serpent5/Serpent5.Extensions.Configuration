@@ -1,31 +1,31 @@
 using System;
+using FluentAssertions;
 using Microsoft.Extensions.Configuration;
-using NUnit.Framework;
+using Xunit;
 
 namespace Serpent5.Extensions.Configuration.Test
 {
-    [TestFixture]
     public class ConfigurationBuilderExtensionsTest
     {
         private const string environmentSettingName = "environmentSetting";
 
-        [Test]
+        [Fact]
         public void TestAppSettings()
         {
             var configurationRoot = CreateConfigurationRoot();
 
-            Assert.That(configurationRoot["appSettingsSetting"], Is.EqualTo("appSettingsValue"));
+            configurationRoot["appSettingsSetting"].Should().Be("appSettingsValue");
         }
 
-        [Test]
+        [Fact]
         public void TestAppSettingsProduction()
         {
             var configurationRoot = CreateConfigurationRoot();
 
-            Assert.That(configurationRoot["appSettingsProductionSetting"], Is.EqualTo("appSettingsProductionValue"));
+            configurationRoot["appSettingsProductionSetting"].Should().Be("appSettingsProductionValue");
         }
 
-        [Test]
+        [Fact]
         public void TestEnvironmentVariable()
         {
             const string settingName = "environmentVariableSetting";
@@ -35,44 +35,54 @@ namespace Serpent5.Extensions.Configuration.Test
 
             var configurationRoot = CreateConfigurationRoot();
 
-            Assert.That(configurationRoot[settingName], Is.EqualTo(value));
+            configurationRoot[settingName].Should().Be(value);
         }
 
-        [Test]
+        [Fact]
         public void TestCommandLine()
         {
             const string settingName = "commandLineSetting";
             const string value = "commandLineValue";
+
             var configurationRoot = CreateConfigurationRoot(new[] { $"--{settingName}={value}" });
 
-            Assert.That(configurationRoot[settingName], Is.EqualTo(value));
+            configurationRoot[settingName].Should().Be(value);
         }
 
-        [Test]
+        [Fact]
         public void TestAppSettingsProductionOverride()
         {
             var configurationRoot = CreateConfigurationRoot();
 
-            Assert.That(configurationRoot[environmentSettingName], Is.EqualTo("productionOverrideValue"));
+            configurationRoot[environmentSettingName].Should().Be("productionOverrideValue");
         }
 
-        [Test]
+        [Fact]
         public void TestEnvironmentVariableOverride()
         {
             const string overrideValue = "environmentVariableOverrideValue";
             Environment.SetEnvironmentVariable(environmentSettingName, overrideValue);
-            var configurationRoot = CreateConfigurationRoot();
 
-            Assert.That(configurationRoot[environmentSettingName], Is.EqualTo(overrideValue));
+            try
+            {
+                var configurationRoot = CreateConfigurationRoot();
+
+                configurationRoot[environmentSettingName].Should().Be(overrideValue);
+            }
+            finally
+            {
+                Environment.SetEnvironmentVariable(environmentSettingName, null);
+            }
         }
 
-        [Test]
+        [Fact]
         public void TestCommandLineOverride()
         {
             const string overrideValue = "commandLineOverrideValue";
+
             var configurationRoot = CreateConfigurationRoot(new[] { $"--{environmentSettingName}={overrideValue}" });
 
-            Assert.That(configurationRoot[environmentSettingName], Is.EqualTo(overrideValue));
+            configurationRoot[environmentSettingName].Should().Be(overrideValue);
         }
 
         private static IConfigurationRoot CreateConfigurationRoot(string[] args = null) =>
