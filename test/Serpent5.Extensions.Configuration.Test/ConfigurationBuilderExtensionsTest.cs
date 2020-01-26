@@ -87,7 +87,7 @@ namespace Serpent5.Extensions.Configuration.Test
 
         private static IConfigurationRoot CreateConfigurationRoot(string[] args = null) =>
             new ConfigurationBuilder()
-                .AddWebHostDefaults(args)
+                .AddHostDefaults(args)
                 .Build();
     }
 }

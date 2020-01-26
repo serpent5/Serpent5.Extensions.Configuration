@@ -6,12 +6,14 @@ namespace Microsoft.Extensions.Configuration
 {
     public static class ConfigurationBuilderExtensions
     {
-        public static IConfigurationBuilder AddWebHostDefaults(this IConfigurationBuilder configurationBuilder, string[] args = null)
+        public static IConfigurationBuilder AddHostDefaults(this IConfigurationBuilder configurationBuilder, string[] args = null)
         {
             if (configurationBuilder == null)
                 throw new ArgumentNullException(nameof(configurationBuilder));
 
-            var aspnetCoreEnvironment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
+            var aspnetCoreEnvironment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")
+                ?? Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT")
+                ?? "Production";
 
             configurationBuilder
                 .SetBasePath(Directory.GetCurrentDirectory())

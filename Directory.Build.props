@@ -3,7 +3,7 @@
     <LangVersion>latest</LangVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <Authors>Kirk Larkin</Authors>
-    <Description>An extension for configuring a configuration pipeline that matches ASP.NET Core's WebHost defaults.</Description>
+    <Description>An extension for configuring a configuration pipeline that matches ASP.NET Core's Host defaults.</Description>
     <RepositoryUrl>https://github.com/serpent5/Serpent5.Extensions.Configuration</RepositoryUrl>
     <PackageIconUrl>http://icons.iconarchive.com/icons/ph03nyx/super-mario/64/Shell-Green-icon.png</PackageIconUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
